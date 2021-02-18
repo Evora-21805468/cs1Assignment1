@@ -1,11 +1,17 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
-class Carro {
-    var identificador: String = ""
+import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
+
+class Carro : Motor, Movimentavel, Veiculo(){
+    override var identificador: String = ""
     lateinit var motor: Motor
 
-    constructor(identificador: String, motor: Motor) {
+    constructor(identificador: String, motor: Motor) : super() {
         this.identificador = identificador
         this.motor = motor
+    }
+
+    override fun toString(): String {
+        return "Carro | $identificador | $dataDeAquisicao | Posicao | x: ${posicao.x} | y: ${posicao.y} "
     }
 }

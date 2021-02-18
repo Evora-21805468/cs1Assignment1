@@ -9,7 +9,11 @@ class Posicao {
         this.y = y
     }
 
-    fun alterarPosicaoPara(x: Int, y: Int){
+    fun alterarPosicaoPara(x: Int, y: Int) {
 
+    }
+
+    override fun toString(): String {
+        return "Posicao | x: $x | y: $y"
     }
 }

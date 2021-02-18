@@ -2,7 +2,7 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import java.util.*
 
-class Pessoa {
+open class Pessoa : Veiculo(){
     lateinit var nome: String
     var veiculos: listOf<Veiculo> = null
     lateinit var dataDeNascimento: Date
@@ -37,4 +37,9 @@ class Pessoa {
     fun tirarCarta(){
 
     }
+
+    override fun toString(): String {
+        return "Pessoa | $nome | $dataDeNascimento | $posicao | x: ${posicao.x} | y: ${posicao.y}"
+    }
+
 }
