@@ -31,6 +31,10 @@ data class Pessoa(var nome: String, var dataDeNascimento: Date) : Movimentavel {
 
     }
 
+    fun venderVeiculo(identificador: String, comprador: Pessoa){
+        
+    }
+
     fun temCarta(): Boolean{
         return false
     }

@@ -20,7 +20,5 @@ abstract class Veiculo: Movimentavel{
 
     }
 
-    fun requerCarta(): Boolean{
-        return false
-    }
+    abstract fun requerCarta(): Boolean
 }

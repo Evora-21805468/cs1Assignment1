@@ -9,6 +9,10 @@ class Bicicleta: Movimentavel, Veiculo {
         this.identificador = identificador
     }
 
+    override fun requerCarta(): Boolean {
+        return false
+    }
+
     override fun toString(): String {
         return "Carro | $identificador | $dataDeAquisicao | Posicao | x: ${posicao.x} | y: ${posicao.y} "
     }
