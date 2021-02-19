@@ -4,12 +4,14 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
+import pt.ulusofona.cm.kotlin.challenge.models.Data
 import java.util.*
 import java.lang.reflect.Field
 import java.time.LocalDate
 import java.time.Period
 import java.util.Arrays
 import java.util.Date
+import kotlin.time.days
 
 data class Pessoa(var nome: String, var dataDeNascimento: Date) : Movimentavel {
 
@@ -63,7 +65,7 @@ data class Pessoa(var nome: String, var dataDeNascimento: Date) : Movimentavel {
     }
 
     override fun toString(): String {
-        return "Pessoa | $nome | $dataDeNascimento | $posicao | x:${posicao.x} | y:${posicao.y}"
+        return "Pessoa | $nome | ${Data.getDate(dataDeNascimento)} | $posicao | x:${posicao.x} | y:${posicao.y}"
     }
 
 }
