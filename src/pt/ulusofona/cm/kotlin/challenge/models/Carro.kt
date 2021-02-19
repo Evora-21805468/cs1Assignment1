@@ -4,7 +4,6 @@ import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 
 class Carro : Veiculo, Movimentavel {
     override var identificador: String = ""
-
     var motor: Motor
 
     constructor(identificador: String, motor: Motor) : super() {
@@ -14,6 +13,10 @@ class Carro : Veiculo, Movimentavel {
 
     override fun requerCarta(): Boolean {
         return true
+    }
+
+    override fun moverPara(x: Int, y: Int) {
+
     }
 
     override fun toString(): String {

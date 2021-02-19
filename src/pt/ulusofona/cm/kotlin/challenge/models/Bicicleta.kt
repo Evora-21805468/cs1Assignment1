@@ -13,7 +13,11 @@ class Bicicleta: Movimentavel, Veiculo {
         return false
     }
 
+    override fun moverPara(x: Int, y: Int) {
+
+    }
+
     override fun toString(): String {
-        return "Carro | $identificador | $dataDeAquisicao | Posicao | x: ${posicao.x} | y: ${posicao.y} "
+        return "Bicicleta | $identificador | $dataDeAquisicao | Posicao | x: ${posicao.x} | y: ${posicao.y} "
     }
 }

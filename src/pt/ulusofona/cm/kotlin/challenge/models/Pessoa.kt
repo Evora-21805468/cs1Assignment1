@@ -1,6 +1,8 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
+import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
+import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.util.*
 import java.lang.reflect.Field
@@ -16,27 +18,46 @@ data class Pessoa(var nome: String, var dataDeNascimento: Date) : Movimentavel {
 
 
     fun comprarVeiculo(veiculo: Veiculo){
-
+        veiculos.add(veiculo)
     }
 
     fun pesquisarVeiculo(identificador: String): Veiculo {
-        return Carro("ff",Motor(125,452))
-    }
-
-    fun pesquisarVeiculo(identificador: String, comprador: Pessoa): Veiculo {
-        return Carro("ff",Motor(125,452))
+        for(i in veiculos){
+            if(i.identificador == identificador){
+                return i
+            }
+        }
+        throw VeiculoNaoEncontradoException("Oh zé! Não há veiculo com esse identificador!")
     }
 
     fun moverVeiculoPara(identificador: String, x: Int, y: Int){
+        var veiculo = pesquisarVeiculo(identificador)
+        if (veiculo.requerCarta() && !(temCarta())){
+            throw PessoaSemCartaException("$nome não tem carta para conduzir o veículo indicado")
+        }
 
+        if(veiculo.requerCarta() && temCarta()){
+            if(veiculo.identificador == identificador){
+                veiculo.moverPara(x,y)
+            }
+        }
+
+        if(!veiculo.requerCarta()){
+            if(veiculo.identificador == identificador){
+                veiculo.moverPara(x,y)
+            }
+        }
+        throw AlterarPosicaoException("Não podes mover!")
     }
 
     fun venderVeiculo(identificador: String, comprador: Pessoa){
-        
+        var veiculo2 = pesquisarVeiculo(identificador)
+        veiculos.remove(veiculo2)
+        comprador.veiculos.add(veiculo2)
     }
 
     fun temCarta(): Boolean{
-        return false
+        return true
     }
 
     fun tirarCarta(){
@@ -52,3 +73,4 @@ data class Pessoa(var nome: String, var dataDeNascimento: Date) : Movimentavel {
     }
 
 }
+

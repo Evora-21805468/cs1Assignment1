@@ -16,9 +16,7 @@ abstract class Veiculo: Movimentavel{
 
     }
 
-    override fun moverPara(x: Int, y: Int) {
-
-    }
+    abstract override fun moverPara(x: Int, y: Int)
 
     abstract fun requerCarta(): Boolean
 }
