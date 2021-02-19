@@ -3,14 +3,7 @@ package pt.ulusofona.cm.kotlin.challenge.models
 import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 
-class Carro : Veiculo, Movimentavel {
-    override var identificador: String = ""
-    var motor: Motor
-
-    constructor(identificador: String, motor: Motor) : super() {
-        this.identificador = identificador
-        this.motor = motor
-    }
+class Carro (identificador: String, var motor: Motor): Veiculo(identificador), Movimentavel {
 
     override fun requerCarta(): Boolean {
         return true
