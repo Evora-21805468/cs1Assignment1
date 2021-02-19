@@ -63,7 +63,7 @@ data class Pessoa(var nome: String, var dataDeNascimento: Date) : Movimentavel {
     }
 
     override fun toString(): String {
-        return "Pessoa | $nome | $dataDeNascimento | $posicao | x: ${posicao.x} | y: ${posicao.y}"
+        return "Pessoa | $nome | $dataDeNascimento | $posicao | x:${posicao.x} | y:${posicao.y}"
     }
 
 }
