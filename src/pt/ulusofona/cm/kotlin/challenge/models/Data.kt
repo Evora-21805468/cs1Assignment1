@@ -53,7 +53,7 @@ class Data {
 
             val year = cal2[Calendar.YEAR]
 
-            val month = cal2[Calendar.MONTH]
+            val month = cal2[Calendar.MONTH] + 1
 
             val day = cal2[Calendar.DAY_OF_MONTH]
 
