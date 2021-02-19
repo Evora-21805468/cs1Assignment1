@@ -16,7 +16,14 @@ class Carro : Veiculo, Movimentavel {
     }
 
     override fun moverPara(x: Int, y: Int) {
-
+        if(!motor.estaLigado()){
+            motor.ligar()
+            posicao.alterarPosicaoPara(x,y)
+            motor.desligar()
+        } else {
+            posicao.alterarPosicaoPara(x,y)
+            motor.desligar()
+        }
     }
 
     override fun toString(): String {
