@@ -1,6 +1,7 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
+import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
@@ -54,7 +55,11 @@ data class Pessoa(var nome: String, var dataDeNascimento: Date) : Movimentavel {
     }
 
     fun tirarCarta(){
-
+        if(Data.getIdade(dataDeNascimento) >= 18){
+            carta = Carta()
+        } else {
+            throw MenorDeIdadeException("$nome não tem carta para conduzir o veículo indicado")
+        }
     }
 
     override fun moverPara(x: Int, y: Int) {
