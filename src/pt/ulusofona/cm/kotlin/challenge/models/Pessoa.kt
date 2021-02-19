@@ -34,20 +34,9 @@ data class Pessoa(var nome: String, var dataDeNascimento: Date) : Movimentavel {
         var veiculo = pesquisarVeiculo(identificador)
         if (veiculo.requerCarta() && !(temCarta())){
             throw PessoaSemCartaException("$nome não tem carta para conduzir o veículo indicado")
-        }
-
-        if(veiculo.requerCarta() && temCarta()){
-            if(veiculo.identificador == identificador){
+        } else {
                 veiculo.moverPara(x,y)
-            }
         }
-
-        if(!veiculo.requerCarta()){
-            if(veiculo.identificador == identificador){
-                veiculo.moverPara(x,y)
-            }
-        }
-        throw AlterarPosicaoException("Não podes mover!")
     }
 
     fun venderVeiculo(identificador: String, comprador: Pessoa){
