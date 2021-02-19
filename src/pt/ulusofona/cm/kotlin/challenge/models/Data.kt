@@ -47,14 +47,13 @@ class Data {
         fun getDate(dataDeNascimento: Date?): String{
             val mFormat = DecimalFormat("00")
 
-
             val cal2 : Calendar = GregorianCalendar()
 
             cal2.time = dataDeNascimento
 
-            val year = cal2[Calendar.YEAR] - 1900
+            val year = cal2[Calendar.YEAR]
 
-            val month = cal2[Calendar.MONTH] - 1
+            val month = cal2[Calendar.MONTH]
 
             val day = cal2[Calendar.DAY_OF_MONTH]
 
