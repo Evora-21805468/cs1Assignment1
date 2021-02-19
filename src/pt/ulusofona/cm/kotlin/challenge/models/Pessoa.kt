@@ -35,7 +35,7 @@ data class Pessoa(var nome: String, var dataDeNascimento: Date) : Movimentavel {
         if (veiculo.requerCarta() && !(temCarta())){
             throw PessoaSemCartaException("$nome não tem carta para conduzir o veículo indicado")
         } else {
-                veiculo.moverPara(x,y)
+            veiculo.moverPara(x,y)
         }
     }
 
@@ -46,7 +46,7 @@ data class Pessoa(var nome: String, var dataDeNascimento: Date) : Movimentavel {
     }
 
     fun temCarta(): Boolean{
-        return true
+        return this::carta.isInitialized
     }
 
     fun tirarCarta(){
