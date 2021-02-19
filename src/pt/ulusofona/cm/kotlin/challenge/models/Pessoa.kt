@@ -45,6 +45,7 @@ data class Pessoa(var nome: String, var dataDeNascimento: Date) : Movimentavel {
     fun venderVeiculo(identificador: String, comprador: Pessoa){
         var veiculo2 = pesquisarVeiculo(identificador)
         veiculos.remove(veiculo2)
+        veiculo2.dataDeAquisicao = Date()
         comprador.veiculos.add(veiculo2)
     }
 
