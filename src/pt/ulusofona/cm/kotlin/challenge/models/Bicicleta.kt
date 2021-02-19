@@ -1,5 +1,6 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
+import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 
 class Bicicleta: Movimentavel, Veiculo {
@@ -14,7 +15,10 @@ class Bicicleta: Movimentavel, Veiculo {
     }
 
     override fun moverPara(x: Int, y: Int) {
-
+        if (posicao.x == x && posicao.y == y){
+            throw AlterarPosicaoException("Já se encontra nesta posição!")
+        }
+        posicao.alterarPosicaoPara(x,y)
     }
 
     override fun toString(): String {

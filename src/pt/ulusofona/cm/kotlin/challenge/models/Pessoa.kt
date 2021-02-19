@@ -9,12 +9,14 @@ import java.lang.reflect.Field
 import java.time.LocalDate
 import java.time.Period
 import java.util.Arrays
+import java.util.Date
 
 data class Pessoa(var nome: String, var dataDeNascimento: Date) : Movimentavel {
 
     var veiculos = arrayListOf<Veiculo>()
     lateinit var carta: Carta
     var posicao: Posicao = Posicao(0,0)
+
 
 
     fun comprarVeiculo(veiculo: Veiculo){
@@ -54,7 +56,10 @@ data class Pessoa(var nome: String, var dataDeNascimento: Date) : Movimentavel {
     }
 
     override fun moverPara(x: Int, y: Int) {
-
+        if (posicao.x == x && posicao.y == y){
+            throw AlterarPosicaoException("Já se encontra nesta posição!")
+        }
+        posicao.alterarPosicaoPara(x,y)
     }
 
     override fun toString(): String {
