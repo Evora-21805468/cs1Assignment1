@@ -1,9 +1,10 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
+import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 
-class Carro (identificador: String, var motor: Motor): Veiculo(identificador), Movimentavel {
+class Carro (identificador: String, var motor: Motor): Veiculo(identificador), Movimentavel, Ligavel {
 
     override fun requerCarta(): Boolean {
         return true
@@ -21,6 +22,18 @@ class Carro (identificador: String, var motor: Motor): Veiculo(identificador), M
             posicao.alterarPosicaoPara(x,y)
             motor.desligar()
         }
+    }
+
+    override fun ligar() {
+        motor.ligar()
+    }
+
+    override fun desligar() {
+        motor.desligar()
+    }
+
+    override fun estaLigado(): Boolean {
+        return motor.estaLigado()
     }
 
     override fun toString(): String {
