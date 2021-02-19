@@ -1,29 +1,30 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
+import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
+import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.util.*
+import java.lang.reflect.Field
+import java.time.LocalDate
+import java.time.Period
+import java.util.Arrays
 
-open class Pessoa : Veiculo(){
-    lateinit var nome: String
-    var veiculos: listOf<Veiculo> = null
-    lateinit var dataDeNascimento: Date
+data class Pessoa(var nome: String, var dataDeNascimento: Date) : Movimentavel {
+
+    var veiculos = arrayListOf<Veiculo>()
     lateinit var carta: Carta
-    lateinit var posicao: Posicao
+    var posicao: Posicao = Posicao(0,0)
 
-    constructor(nome: String, dataDeNascimento: Date) {
-        this.nome = nome
-        this.dataDeNascimento = dataDeNascimento
-    }
 
     fun comprarVeiculo(veiculo: Veiculo){
 
     }
 
     fun pesquisarVeiculo(identificador: String): Veiculo {
-        return null
+        return Carro("ff",Motor(125,452))
     }
 
     fun pesquisarVeiculo(identificador: String, comprador: Pessoa): Veiculo {
-        return null
+        return Carro("ff",Motor(125,452))
     }
 
     fun moverVeiculoPara(identificador: String, x: Int, y: Int){
@@ -35,6 +36,10 @@ open class Pessoa : Veiculo(){
     }
 
     fun tirarCarta(){
+
+    }
+
+    override fun moverPara(x: Int, y: Int) {
 
     }
 

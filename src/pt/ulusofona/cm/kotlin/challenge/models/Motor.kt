@@ -12,9 +12,6 @@ open class Motor: Ligavel {
         this.cilindrada = cilindrada
     }
 
-    constructor()
-
-
     override fun ligar() {
         ligado = true
     }

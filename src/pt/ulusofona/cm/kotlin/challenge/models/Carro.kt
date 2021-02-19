@@ -2,9 +2,9 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 
-class Carro : Motor, Movimentavel, Veiculo(){
+class Carro : Veiculo, Movimentavel {
     override var identificador: String = ""
-    lateinit var motor: Motor
+    var motor: Motor
 
     constructor(identificador: String, motor: Motor) : super() {
         this.identificador = identificador
